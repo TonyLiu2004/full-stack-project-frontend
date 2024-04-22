@@ -1,0 +1,21 @@
+#campus-view-title{
+    text-align: center;
+}
+
+#campus-view-address{
+    text-align:left;
+}
+
+#campus-view-description{
+    text-align:left;
+}
+
+.campus-view-image{
+    max-height:400px;
+    max-width:1000px;
+}
+
+.campus-view-info{
+    width:80%;
+    margin:auto;
+}

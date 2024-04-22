@@ -1,7 +1,8 @@
 .App {
-  background-color: beige;
+  background-color: white;
   min-height: 100vh;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .App-link {

@@ -1,0 +1,60 @@
+#campus-container{
+    width:80%;
+    margin:auto;
+}
+
+.campus{
+    border:1px solid black;
+    padding:10px;
+    display:flex;
+    justify-content: space-between;
+    padding-left:15px;
+    padding-right:15px;
+    max-height:300px;
+}
+
+#campus-delete-button{
+    background-color: red;
+    color:white;
+    border:1px solid black;
+    border-radius: 3px;
+}
+
+.campus-image{
+    width:250px;
+    height:250px;
+    object-fit: cover;
+}
+
+#campus-info-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    width:70%;
+}
+
+.campus-info-title{
+    display:flex;
+}
+
+#campus-name-container{
+    overflow:hidden;
+    white-space: nowrap;
+    max-width: 700px;
+    text-overflow: ellipsis;
+}
+
+.campus-description-container{
+    overflow:hidden;
+    text-overflow: ellipsis;
+    max-height: calc(5 * 1.3em); /* Assuming line-height of 1.2em */
+    line-height: 1.3em;
+}
+
+.campus-address-container{
+    overflow:hidden;
+    text-overflow: ellipsis;
+    max-height: calc(2 * 1.3em);
+    line-height: 1.3em;
+}

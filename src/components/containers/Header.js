@@ -23,11 +23,11 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'left',
     fontType: 'bold',
     fontFamily: 'sans-serif', 
-    fontSize: '35px', 
-    color: 'darkblue'
+    fontSize: '26px', 
+    color: 'white'
   },
   appBar:{
-    backgroundColor: '#fcb6bb',
+    backgroundColor: '#194053',
     shadows: ['none'],
   },
   greeting:{

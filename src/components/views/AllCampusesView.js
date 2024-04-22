@@ -6,7 +6,7 @@ It constructs a React component to display all campuses.
 ================================================== */
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
+import "./AllCampusesView.css";
 const AllCampusesView = (props) => {
   const {deleteCampus} = props;
   console.log(props);
@@ -20,18 +20,30 @@ const AllCampusesView = (props) => {
     <div>
       <h1>All Campuses</h1>
 
-      {props.allCampuses.map((campus) => (
-        <div key={campus.id}>
-          <Link to={`/campus/${campus.id}`}>
-            <h2>{campus.name}</h2>
-          </Link>
-          <h4>campus id: {campus.id}</h4>
-          <p>{campus.address}</p>
-          <p>{campus.description}</p>
-          <button onClick={() => deleteCampus(campus.id)}>Delete</button>
-          <hr/>
-        </div>
-      ))}
+      <div id="campus-container">
+        {props.allCampuses.map((campus) => (
+          <div key={campus.id} className="campus">
+            {campus.imageurl === "" ? <img className="campus-image" src="https://cdn-icons-png.flaticon.com/512/904/904861.png" alt="campus"></img> : <img className="campus-image" src={campus.imageurl} alt="campus"></img>}
+            <div id="campus-info-container">
+              <div className="campus-info-title">
+                <Link to={`/campus/${campus.id}`}>
+                  <h2 id="campus-name-container">{campus.name}</h2>
+                </Link>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h4 classname="campus-id">campus id: {campus.id}</h4>
+              </div>
+              <div>
+                <p className="campus-address-container">Address: {campus.address}</p>
+                <p className="campus-description-container">{campus.description}</p>
+              </div>
+            </div>
+            <div className="buttons-container">
+              <button>Edit</button>
+              <button id="campus-delete-button" onClick={() => deleteCampus(campus.id)}>Delete</button>
+            </div>
+          </div>
+        ))}
+      </div>
       <br/>
       <Link to={`/newcampus`}>
         <button>Add New Campus</button>
