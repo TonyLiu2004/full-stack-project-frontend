@@ -16,11 +16,15 @@ const StudentView = (props) => {
     dispatch(deleteStudentThunk(student.id));
     window.location.href = '/students';
   };
+  const handleEdit = () => {
+    window.location.href = `/students/${student.id}/edit`;
+  }
   // Render a single Student view 
   return (
     <div>
       <h1>{student.firstname + " " + student.lastname}</h1>
       <h3>{student.campus.name}</h3>
+      <button onClick = {() => handleEdit()}>Edit</button>
       <button onClick={() => handleDelete()}>Delete</button>
     </div>
   );
