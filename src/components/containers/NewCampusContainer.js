@@ -18,14 +18,19 @@ class NewCampusContainer extends Component {
             redirectId: null
         };
     }
+    
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
+
     handleSubmit = async event => {
         event.preventDefault();  // Prevent browser reload/refresh after submit.
-    
+        if(this.state.name === "" || this.state.address === "" || this.state.description === "") {
+            alert("Missing Information");
+            return;
+        }
         let campus = {
             name: this.state.name,
             imageurl: this.state.imageurl,
@@ -33,10 +38,10 @@ class NewCampusContainer extends Component {
             description: this.state.description
         };
         
-        // Add new student in back-end database
+        // Add new campus in back-end database
         let newCampus = await this.props.addCampus(campus);
     
-        // Update state, and trigger redirect to show the new student
+        // Update state, and trigger redirect to show the new campus
         this.setState({
           name: "", 
           imageurl: "", 

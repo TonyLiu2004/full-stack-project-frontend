@@ -35,7 +35,8 @@ const useStyles = makeStyles( () => ({
 }));
 
 const NewStudentView = (props) => {
-  const {handleChange, handleSubmit } = props;
+  const {handleChange, handleSubmit, campuses } = props;
+  console.log(campuses);
   const classes = useStyles();
 
   // Render a New Student view with an input form
@@ -61,8 +62,17 @@ const NewStudentView = (props) => {
             <br/>
             <br/>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus Id: </label>
-            <input type="text" name="campusId" onChange={(e) => handleChange(e)} />
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus: </label>
+            <select name="campusId" onChange={(e) => handleChange(e)}>
+              {
+                campuses.map((campus) => {
+                  return <option key={campus.id} value={campus.id}>
+                          {campus.name.length > 30 ? `${campus.name.slice(0, 20)}...` : campus.name}
+                          </option>
+                })
+              }
+            </select>
+            
             <br/>
             <br/>
 

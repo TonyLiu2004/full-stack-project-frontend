@@ -12,10 +12,18 @@ const CampusView = (props) => {
   const generalCampusImage = "https://cdn-icons-png.flaticon.com/512/904/904861.png";
   // Render a single Campus view with list of its students
   console.log(campus);
+  function checkImageUrlValidity(imageUrl) {
+    const img = new Image();
+    img.src = imageUrl;
+    return img.complete && img.naturalWidth !== 0;
+  }
   return (
     <div style={{padding:"20px"}}>
       <h1 id="campus-view-title">{campus.name}</h1>
-      {campus.imageurl === "" ? <img className="campus-view-image" src={generalCampusImage} alt="campus"></img> : <img className="campus-view-image" src={campus.imageurl} alt="campus"></img> }
+      {campus.imageurl === "" || !checkImageUrlValidity(campus.imageurl) ? 
+        <img className="campus-view-image" src={generalCampusImage} alt="campus"></img> 
+        : <img className="campus-view-image" src={campus.imageurl} alt="campus"></img> 
+      }
       <div className="campus-view-info">
         <p id="campus-view-address">Address: {campus.address}</p>
         <p id="campus-view-description">{campus.description}</p>

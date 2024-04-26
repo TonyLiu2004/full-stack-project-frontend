@@ -10,7 +10,10 @@
     justify-content: space-between;
     padding-left:15px;
     padding-right:15px;
-    max-height:300px;
+    max-height: 100%;
+    max-width:100%;
+    flex-wrap: wrap;
+    box-sizing: border-box;
 }
 
 #campus-delete-button{
@@ -21,8 +24,8 @@
 }
 
 .campus-image{
-    width:250px;
-    height:250px;
+    max-width: 250px; 
+    height: auto;
     object-fit: cover;
 }
 
@@ -36,13 +39,14 @@
 
 .campus-info-title{
     display:flex;
+    flex-wrap: wrap;
 }
 
 #campus-name-container{
-    overflow:hidden;
-    white-space: nowrap;
+    overflow: hidden;
     max-width: 700px;
     text-overflow: ellipsis;
+    display: inline-block;
 }
 
 .campus-description-container{
@@ -58,3 +62,11 @@
     max-height: calc(2 * 1.3em);
     line-height: 1.3em;
 }
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  

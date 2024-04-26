@@ -1,6 +1,6 @@
 import "./NewCampusView.css";
   const NewCampusView = (props) => {
-    const {handleChange, handleSubmit } = props;
+    const {handleChange, handleSubmit} = props;
     // Render a New Student view with an input form
     return (
       <div>
