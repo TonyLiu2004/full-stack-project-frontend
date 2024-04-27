@@ -17,7 +17,8 @@ const StudentView = (props) => {
     window.location.href = '/students';
   };
   const handleEdit = () => {
-    window.location.href = `/students/${student.id}/edit`;
+    console.log(student.id);
+    window.location.href = `/student/${student.id}/edit`;
   }
   // Render a single Student view 
   console.log(student)

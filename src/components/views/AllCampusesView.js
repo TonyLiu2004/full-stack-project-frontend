@@ -48,7 +48,7 @@ const AllCampusesView = (props) => {
                   <h2 id="campus-name-container">{campus.name.length > 55 ? `${campus.name.substring(0, 55)}...` : campus.name}</h2>
                 </Link>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <h4 classname="campus-id">campus id: {campus.id}</h4>
+                <h4 className="campus-id">campus id: {campus.id}</h4>
               </div>
               <div>
                 <p className="campus-address-container">Address: {campus.address}</p>
