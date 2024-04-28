@@ -20,7 +20,9 @@ const AllStudentsView = (props) => {
     </div>
     );
   }
-  
+  const handleEdit = (id) => {
+    window.location.href = `/student/${id}/edit`;
+  }
   // If there is at least one student, render All Students view 
   return (
     <div>
@@ -38,7 +40,7 @@ const AllStudentsView = (props) => {
                 <h2>{name}</h2>
               </Link>
               <div className="buttons-container">
-                <button >Edit</button>
+              <button onClick = {() => handleEdit(student.id)}>Edit</button>
                 <button id="student-delete-button" onClick={() => deleteStudent(student.id)}>Delete</button>
               </div>
             </div>

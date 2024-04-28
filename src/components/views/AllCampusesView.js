@@ -25,6 +25,10 @@ const AllCampusesView = (props) => {
     img.src = imageUrl;
     return img.complete && img.naturalWidth !== 0;
   }
+
+  const handleEdit = (id) => {
+    window.location.href = `/campus/${id}/edit`;
+  }
   // If there is at least one campus, render All Campuses view 
   return (
     <div>
@@ -56,7 +60,7 @@ const AllCampusesView = (props) => {
               </div>
             </div>
             <div className="buttons-container">
-              <button>Edit</button>
+              <button onClick = {() => handleEdit(campus.id)}>Edit</button>
               <button id="campus-delete-button" onClick={() => deleteCampus(campus.id)}>Delete</button>
             </div>
           </div>

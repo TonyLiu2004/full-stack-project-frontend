@@ -27,8 +27,7 @@ class EditStudentContainer extends Component {
             await this.props.fetchAllCampuses();
             await this.props.fetchStudent(this.props.match.params.id);
             console.log(this.props);
-            console.log(this.props.allCampuses[0].id);
-            if (this.props.allCampuses && this.props.allCampuses.length > 0) {
+            if (this.props.allCampuses && this.props.allCampuses.length > 0) { //initialize selected campus to first campus
                 this.setState({
                     campusId: this.props.allCampuses[0].id,
                 });

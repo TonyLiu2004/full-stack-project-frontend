@@ -34,7 +34,8 @@
     flex-direction: column;
     justify-content: left;
     text-align: left;
-    width:70%;
+    margin-right:auto;
+    padding-left:15px;
 }
 
 .campus-info-title{

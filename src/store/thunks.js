@@ -108,6 +108,15 @@ export const editStudentThunk = student => async dispatch => {  // The THUNK
   }
 };
 
+export const editCampusThunk = campus => async dispatch => {
+  try {
+    let updatedCampus = await axios.put(`http://localhost:5001/api/campuses/${campus.id}`, campus);
+    dispatch(ac.editCampus(updatedCampus));
+  } catch(err){
+    console.log(err);
+  }
+};
+
 // Single Student
 // THUNK CREATOR:
 export const fetchStudentThunk = id => async dispatch => {  // The THUNK
