@@ -36,7 +36,7 @@ const AllStudentsView = (props) => {
           let name = student.firstname + " " + student.lastname;
           return (
             <div key={student.id} className = "student">
-              <Link to={`/student/${student.id}`}>
+              <Link to={`/student/${student.id}`} style={{ textDecoration: 'none' }}>
                 <h2>{name}</h2>
               </Link>
               <div className="buttons-container">

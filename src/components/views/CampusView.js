@@ -8,14 +8,18 @@ import { Link } from "react-router-dom";
 import "./CampusView.css"
 // Take in props data to construct the component
 const CampusView = (props) => {
-  const {campus} = props;
+  const {campus, students, deleteStudent, deleteCampus} = props;
   const generalCampusImage = "https://cdn-icons-png.flaticon.com/512/904/904861.png";
   // Render a single Campus view with list of its students
-  console.log(campus);
   function checkImageUrlValidity(imageUrl) {
     const img = new Image();
     img.src = imageUrl;
     return img.complete && img.naturalWidth !== 0;
+  }
+
+  const handleDeleteCampus = (campusId) =>{
+    deleteCampus(campusId)
+    window.location.href = `/campuses`;
   }
   return (
     <div style={{padding:"20px"}}>
@@ -28,14 +32,29 @@ const CampusView = (props) => {
         <p id="campus-view-address">Address: {campus.address}</p>
         <p id="campus-view-description">{campus.description}</p>
       </div>
-      {campus.students.length === 0 ? <h3>No students registered.</h3> : <h3>Students:</h3>}
-      {campus.students.map( student => {
+
+      <div id="campus-view-buttons-container">
+        <Link to={`/newstudent`}>
+          <button className="campus-view-button">Add New Student</button>
+        </Link>
+        <Link to={`/campus/${campus.id}/edit`}>
+          <button className="campus-view-button">Edit Campus</button>
+        </Link>
+        <button style={{backgroundColor:"red", color:"white"}}className="campus-view-button" onClick={() =>handleDeleteCampus(campus.id)}>Delete Campus</button>
+      </div>
+
+      {students.length === 0 ? <h3>No students registered.</h3> : <h3>Students:</h3>}
+      {students.map( student => {
         let name = student.firstname + " " + student.lastname;
         return (
-          <div key={student.id}>
-            <Link to={`/student/${student.id}`}>
-              <h2>{name}</h2>
-            </Link>             
+          <div className="student-container" key={student.id}>
+            <div className="student-link">
+              <Link to={`/student/${student.id}`} style={{ textDecoration: 'none' }}>
+                <h2>{name}</h2>
+                {/* {name.length > 30 ? `${name.substring(0, 30)}...` : name} */}
+              </Link>  
+            </div>
+            <button className="deleteStudentButton" onClick={() => deleteStudent(student.id)}>Delete Student</button>           
           </div>
         );
       })}

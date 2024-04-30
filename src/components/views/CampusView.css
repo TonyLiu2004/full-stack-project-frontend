@@ -16,6 +16,60 @@
 }
 
 .campus-view-info{
-    width:80%;
+    width:75%;
     margin:auto;
+}
+
+.student-container{
+    display: flex;
+    justify-content: space-between;
+    margin:auto;
+    max-width: 75%;
+    border:1px solid black;
+    padding:10px;
+    border-radius:5px;
+    margin-bottom:5px;
+    background-color:rgba(36,170,226,255);
+}
+
+.student-link{
+    flex-grow: 1;
+    text-align: left;
+}
+
+.deleteStudentButton{
+    background-color:red;
+    color:white;
+    border:1px solid black;
+    max-height:25px;
+    margin:auto;
+    white-space: nowrap;
+    margin-left:20px;
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor:pointer;
+    font-family: 'Roboto', sans-serif;
+    padding:5px;
+}
+
+.deleteStudentButton:hover {
+    background-color: #b51c1c;
+    color: #ffffff; 
+}
+
+#campus-view-buttons-container{
+    display:flex;
+    flex-direction: row;
+    margin:auto;
+    justify-content: center;
+}
+
+.campus-view-button{
+    cursor:pointer;
+    padding:10px;
+    border:1px solid black;
+    border-radius: 3px;
+    font-family: 'Roboto', sans-serif;
+    font-size:14px;
+    margin-right:20px;
 }

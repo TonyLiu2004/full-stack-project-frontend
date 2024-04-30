@@ -30,6 +30,10 @@ class NewStudentContainer extends Component {
       await this.props.fetchAllCampuses();
       console.log("fetchAllCampuses completed");
       console.log(this.props);
+      // Update state with the campusId after allCampuses are fetched
+      if (this.props.allCampuses.length > 0) {
+        this.setState({ campusId: this.props.allCampuses[0].id });
+      }
     } catch (error) {
         console.error("Error fetching campuses:", error);
     }
@@ -55,7 +59,7 @@ class NewStudentContainer extends Component {
         lastname: this.state.lastname,
         campusId: this.state.campusId
     };
-    
+    console.log("ADDING STRUDENT", student);
     // Add new student in back-end database
     let newStudent = await this.props.addStudent(student);
 

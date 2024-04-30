@@ -12,8 +12,8 @@
     padding-right:15px;
     max-height: 100%;
     max-width:100%;
-    flex-wrap: wrap;
     box-sizing: border-box;
+    flex-wrap:wrap;
 }
 
 #campus-delete-button{
@@ -30,6 +30,9 @@
 }
 
 #campus-info-container{
+    flex: 1 0 30%; 
+    margin: 5px; 
+    box-sizing: border-box;
     display:flex;
     flex-direction: column;
     justify-content: left;
@@ -69,5 +72,6 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-end;
+    margin-left:15px;
   }
   
