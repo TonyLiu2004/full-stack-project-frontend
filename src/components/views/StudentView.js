@@ -24,10 +24,32 @@ const StudentView = (props) => {
   console.log(student)
   return (
     <div>
-      <h1>{student.firstname + " " + student.lastname}</h1>
-      {student.campus === null ? <h3>No Campus</h3> : <h3>{student.campus.name}</h3>}
-      <button onClick = {() => handleEdit()}>Edit</button>
-      <button onClick={() => handleDelete()}>Delete</button>
+      <h1>Student</h1>
+      <div style={{display: "flex", flexDirection:"column", alignItems:"center"}}>
+        <div style={{display:"flex"}}>
+          <h2 style={{ margin: 0}}>First Name:</h2>
+          <h3 style={{ margin: 0, lineHeight: 1.5, marginLeft: "10px" }}>{student.firstname}</h3>
+        </div>
+        <br/>
+        <div style={{display:"flex"}}>
+          <h2 style={{ margin: 0}}>Last Name: </h2>
+          <h3 style={{ margin: 0, lineHeight: 1.5, marginLeft: "10px" }}>{student.lastname}</h3>
+        </div>
+        <br/>
+        <div style={{display:"flex"}}>
+          {student.campus === null ? <h2>No Campus</h2> :
+            <div style={{display:"flex"}}>
+              <h2 style={{ margin: 0, whiteSpace: "nowrap"}}>Campus: </h2>
+              <h3 style={{ margin: 0, lineHeight: 1.5, marginLeft: "10px" }}>{student.campus.name}</h3>
+            </div>  
+          }
+        </div>
+        <br/>
+      </div>
+      <div style={{display:"flex", margin:"auto", maxWidth:"10%", justifyContent:"space-evenly"}}>
+        <button style={{border:"1px solid black", borderRadius:"3px", padding:"7px", fontFamily:"Roboto, sans-serif", fontSize:"14px", cursor:"pointer"}} onClick = {() => handleEdit()}>Edit</button>
+        <button style={{backgroundColor:"red", color:"white", border:"1px solid black", borderRadius:"3px", padding:"7px", fontFamily:"Roboto, sans-serif", fontSize:"14px", cursor:"pointer"}} onClick={() => handleDelete()}>Delete</button>
+      </div>
     </div>
   );
 

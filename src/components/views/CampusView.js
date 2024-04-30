@@ -49,7 +49,7 @@ const CampusView = (props) => {
         return (
           <div className="student-container" key={student.id}>
             <div className="student-link">
-              <Link to={`/student/${student.id}`} style={{ textDecoration: 'none' }}>
+              <Link to={`/student/${student.id}`} style={{ textDecoration: 'none', color:"black" }}>
                 <h2>{name}</h2>
                 {/* {name.length > 30 ? `${name.substring(0, 30)}...` : name} */}
               </Link>  
