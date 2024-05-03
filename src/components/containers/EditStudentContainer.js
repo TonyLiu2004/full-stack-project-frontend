@@ -9,16 +9,18 @@ import { editStudentThunk, fetchAllCampusesThunk, fetchStudentThunk } from '../.
 class EditStudentContainer extends Component {
     constructor(props){
         super(props);
-        console.log("HEWRE");
-        console.log(this.props);
         this.state = {
             firstname: this.props.student.firstname, 
             lastname: this.props.student.lastname, 
             id: this.props.student.id,
             campusId: null, 
             campus:this.props.student.campus,
+            email: this.props.student.email,
+            gpa: this.props.student.gpa,
+            imageUrl: this.props.student.imageUrl,
             redirect: false, 
             redirectId: null,
+            tempurl: this.props.student.imageUrl
         };
     }
 
@@ -39,16 +41,22 @@ class EditStudentContainer extends Component {
 
     // Capture input data when it is entered
     handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-        console.log("State");
-        console.log(this.state);
+        console.log(event.target);
+        if(event.target.name === "imageUrl"){
+            this.setState({
+                [event.target.name]: event.target.value,
+                tempurl: event.target.value
+            })
+        }else{
+            this.setState({
+                [event.target.name]: event.target.value
+            });
+        }
     }
     handleSubmit = async event => {
         event.preventDefault();  // Prevent browser reload/refresh after submit.
     
-        if(this.state.firstname === "" || this.state.lastname === "") {
+        if(this.state.firstname === "" || this.state.lastname === "" || this.state.email === "") {
           alert("Missing Information");
           return;
         }
@@ -57,11 +65,13 @@ class EditStudentContainer extends Component {
             lastname: this.state.lastname,
             campusId: this.state.campusId,
             campus: this.props.allCampuses.find(campus => campus.id === this.state.campusId) || {}, 
-            id: this.props.student.id
+            id: this.props.student.id,
+            email: this.state.email,
+            gpa: this.state.gpa,
+            imageUrl: this.state.imageUrl
         };
 
-        let editStudent = await this.props.editStudent(student);
-        console.log(editStudent);
+        await this.props.editStudent(student);
 
         this.setState({
             firstname: "", 
@@ -69,6 +79,9 @@ class EditStudentContainer extends Component {
             campusId: null,
             campus:null,
             id: null, 
+            email: "",
+            gpa: null,
+            imageUrl: "",
             redirect: true, 
             redirectId: this.props.student.id
         });
@@ -91,6 +104,7 @@ class EditStudentContainer extends Component {
               handleChange = {this.handleChange} 
               handleSubmit={this.handleSubmit}    
               campuses={this.props.allCampuses} 
+              tempurl={this.state.tempurl}
             />
           </div>          
         );

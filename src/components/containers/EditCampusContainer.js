@@ -9,6 +9,7 @@ import EditCampusView from '../views/EditCampusView';
 class EditCampusContainer extends Component {
     constructor(props){
         super(props);
+        console.log(props.campus);
         this.state = {
             name: "", 
             imageurl: "", 

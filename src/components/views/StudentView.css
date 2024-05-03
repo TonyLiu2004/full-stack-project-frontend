@@ -1,0 +1,22 @@
+#student-info-container {
+    display:flex;
+    justify-content:center;
+    padding-bottom:15px;
+    flex-wrap:wrap;
+}
+
+.student-img{
+    max-width: 400px;
+    padding-right: 20px;
+    object-fit: contain;
+    height: auto;
+}
+
+#student-info{
+    padding-left:20px;
+}
+
+.student-info-line{
+    display:flex;
+    padding-bottom:20px;
+}
