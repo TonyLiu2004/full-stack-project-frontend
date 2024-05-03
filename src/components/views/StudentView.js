@@ -39,8 +39,8 @@ const StudentView = (props) => {
         <div style={{display:"flex"}}>
           {student.campus === null ? <h2>No Campus</h2> :
             <div style={{display:"flex"}}>
-              <h2 style={{ margin: 0, whiteSpace: "nowrap"}}>Campus: </h2>
-              <h3 style={{ margin: 0, lineHeight: 1.5, marginLeft: "10px" }}>{student.campus.name}</h3>
+              <h2 style={{ margin: 0, whiteSpace: "nowrap", cursor:"pointer"}}>Campus: </h2>
+              <h3 style={{ margin: 0, lineHeight: 1.5, marginLeft: "10px", cursor:"pointer", color:"darkblue", textDecoration:"underline" }} onClick={() => window.location.href = `/campus/${student.campus.id}`}>{student.campus.name}</h3>
             </div>  
           }
         </div>
