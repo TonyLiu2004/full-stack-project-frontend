@@ -28,7 +28,7 @@ const AllStudentsView = (props) => {
     <div>
       <h1>All Students</h1>
       <Link to={`/newstudent`}>
-        <button>Add New Student</button>
+        <button className="add-student-button">Add New Student</button>
       </Link>
       <br/><br/>
       <div id="student-container">

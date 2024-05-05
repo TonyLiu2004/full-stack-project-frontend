@@ -11,10 +11,10 @@ class EditCampusContainer extends Component {
         super(props);
         console.log(props.campus);
         this.state = {
-            name: "", 
-            imageurl: "", 
-            address: "", 
-            description: "",
+            name: this.props.campus.name, 
+            imageurl: this.props.campus.imageurl, 
+            address: this.props.campus.address, 
+            description: this.props.campus.description,
             id: this.props.campus.id,
             redirect: false, 
             redirectId: null,

@@ -20,6 +20,9 @@ class NewStudentContainer extends Component {
     this.state = {
       firstname: "", 
       lastname: "", 
+      email:"",
+      imageUrl: null,
+      gpa:0.0,
       campusId: null, 
       redirect: false, 
       redirectId: null
@@ -40,16 +43,23 @@ class NewStudentContainer extends Component {
   }
   // Capture input data when it is entered
   handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
+    if(event.target.name === "imageUrl"){
+      this.setState({
+          [event.target.name]: event.target.value,
+          tempurl: event.target.value
+      })
+    }else{
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
   }
 
   // Take action after user click the submit button
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
 
-    if(this.state.firstname === "" || this.state.lastname === "") {
+    if(this.state.firstname === "" || this.state.lastname === "" || this.state.email === "") {
       alert("Missing Information");
       return;
     }
@@ -57,9 +67,12 @@ class NewStudentContainer extends Component {
     let student = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
-        campusId: this.state.campusId
+        campusId: this.state.campusId,
+        email: this.state.email,
+        imageUrl: this.state.imageUrl,
+        gpa: this.state.gpa,
     };
-    console.log("ADDING STRUDENT", student);
+    console.log("ADDING STUDENT", student);
     // Add new student in back-end database
     let newStudent = await this.props.addStudent(student);
 
@@ -68,8 +81,12 @@ class NewStudentContainer extends Component {
       firstname: "", 
       lastname: "", 
       campusId: null, 
+      email:"",
+      imageUrl:"",
+      gpa:0.0,
       redirect: true, 
-      redirectId: newStudent.id
+      redirectId: newStudent.id,
+      tempurl:""
     });
   }
 
@@ -93,6 +110,7 @@ class NewStudentContainer extends Component {
           handleChange = {this.handleChange} 
           handleSubmit={this.handleSubmit}    
           campuses={this.props.allCampuses} 
+          tempurl={this.state.tempurl}
         />
       </div>          
     );

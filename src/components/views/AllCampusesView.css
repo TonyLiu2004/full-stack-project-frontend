@@ -75,3 +75,20 @@
     margin-left:15px;
   }
   
+.add-campus-button{
+    margin:auto;
+    margin-top:10px;
+    width:15%;
+    height:40px;
+    background-color:rgb(93, 115, 204);
+    color:white;
+    border:none;
+    border-radius:3px;
+    font-size:15px;
+    cursor:pointer;
+    transition: background-color 0.3s;
+}
+
+.add-campus-button:hover {
+    background-color: rgb(63, 71, 164); 
+}

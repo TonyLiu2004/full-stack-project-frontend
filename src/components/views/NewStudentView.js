@@ -1,88 +1,57 @@
-/*==================================================
-NewStudentView.js
-
-The Views component is responsible for rendering web page with data provided by the corresponding Container component.
-It constructs a React component to display the new student page.
-================================================== */
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-
-// Create styling for the input form
-const useStyles = makeStyles( () => ({
-  formContainer:{  
-    width: '500px',
-    backgroundColor: '#f0f0f5',
-    borderRadius: '5px',
-    margin: 'auto',
-  },
-  title: {
-    flexGrow: 1,
-    textAlign: 'left',
-    textDecoration: 'none'
-  }, 
-  customizeAppBar:{
-    backgroundColor: '#11153e',
-    shadows: ['none'],
-  },
-  formTitle:{
-    backgroundColor:'#c5c8d6',
-    marginBottom: '15px',
-    textAlign: 'center',
-    borderRadius: '5px 5px 0px 0px',
-    padding: '3px'
-  },
-}));
-
+import "./NewStudentView.css";
 const NewStudentView = (props) => {
-  const {handleChange, handleSubmit, campuses } = props;
+  const {handleChange, handleSubmit, campuses, tempurl } = props;
   console.log(campuses);
-  const classes = useStyles();
 
   // Render a New Student view with an input form
   return (
     <div>
-      <h1>New Student</h1>
+      <h1 className="new-student-title">New Student</h1>
 
-      <div className={classes.root}>
-        <div className={classes.formContainer}>
-          <div className={classes.formTitle}>
-            <Typography style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
-              Add a Student
-            </Typography>
-          </div>
-          <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
-            <label style= {{color:'#11153e', fontWeight: 'bold'}}>First Name: </label>
-            <input type="text" name="firstname" onChange ={(e) => handleChange(e)} />
-            <br/>
-            <br/>
+      <div style={{display:"flex", margin:"auto", flexWrap:"wrap", justifyContent:"space-evenly", width:"80%"}}>
+        <div style={{maxWidth:"40%", flexBasis:"40%", flexShrink:"0"}}>
+          {tempurl === undefined ?
+              <img style={{paddingLeft:"30px", height:"auto", maxWidth:"100%"}} src="https://thumbs.dreamstime.com/b/student-icon-vector-graduation-mortar-board-school-college-university-glyph-pictogram-male-person-profile-avatar-108392101.jpg" alt="campus"></img> 
+              : <img style={{padding:"30px", height:"auto", maxWidth:"100%"}} src={tempurl} alt="student" onError={(e) => { 
+                  e.target.src = 'https://thumbs.dreamstime.com/b/student-icon-vector-graduation-mortar-board-school-college-university-glyph-pictogram-male-person-profile-avatar-108392101.jpg';
+              }}></img> 
+          }
+        </div>
+        <div className="new-student-container">
+          <div className="">
+            <form className="new-student-form" onSubmit={(e) => handleSubmit(e)}>
+              <label style= {{color:'#11153e', fontWeight: 'bold'}}>First Name: </label>
+              <input className="new-student-input" type="text" name="firstname" onChange ={(e) => handleChange(e)} />
+              
+              <label style={{color:'#11153e', fontWeight: 'bold'}}>Last Name: </label>
+              <input className="new-student-input" type="text" name="lastname" onChange={(e) => handleChange(e)} />
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Last Name: </label>
-            <input type="text" name="lastname" onChange={(e) => handleChange(e)} />
-            <br/>
-            <br/>
+              <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus: </label>
+              <select className="new-student-select" name="campusId" onChange={(e) => handleChange(e)}>
+                {
+                  campuses.map((campus) => {
+                    return <option className="new-student-campus-option" key={campus.id} value={campus.id}>
+                            {campus.name.length > 30 ? `${campus.name.slice(0, 20)}...` : campus.name}
+                            </option>
+                  })
+                }
+              </select>
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus: </label>
-            <select name="campusId" onChange={(e) => handleChange(e)}>
-              {
-                campuses.map((campus) => {
-                  return <option key={campus.id} value={campus.id}>
-                          {campus.name.length > 30 ? `${campus.name.slice(0, 20)}...` : campus.name}
-                          </option>
-                })
-              }
-            </select>
-            
-            <br/>
-            <br/>
+              <label style={{color:'#11153e', fontWeight: 'bold'}}>Email: </label>
+              <input className="new-student-input" type="email" name="email" onChange={(e) => handleChange(e)} />
 
-            <Button variant="contained" color="primary" type="submit">
-              Submit
-            </Button>
-            <br/>
-            <br/>
-          </form>
-          </div>
+              <label style={{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
+              <input className="new-student-input" type="text" name="imageUrl" onChange={(e) => handleChange(e)} />
+
+              <label style={{color:'#11153e', fontWeight: 'bold'}}>GPA: </label>
+              <input className="new-student-input" type="number" name="gpa" min="0.0" max="4.0" step="0.1" onChange={(e) => handleChange(e)} />
+              
+              <button className="new-student-submit-button" type="submit">
+                Submit
+              </button>
+            </form>
+            </div>
+        </div>
       </div>
     </div>    
   )

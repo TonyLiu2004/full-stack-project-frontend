@@ -81,7 +81,7 @@ class EditStudentContainer extends Component {
             id: null, 
             email: "",
             gpa: null,
-            imageUrl: "",
+            imageUrl: null,
             redirect: true, 
             redirectId: this.props.student.id
         });

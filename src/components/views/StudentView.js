@@ -26,8 +26,8 @@ const StudentView = (props) => {
       <h1>Student</h1>
       <br/>
       <div id="student-info-container">
-        {student.imageUrl === "" ? 
-          <img className="student-img" src="https://cdn-icons-png.flaticon.com/512/904/904861.png" alt="student"></img> 
+        {student.imageUrl === null || student.imageUrl === "" ? 
+          <img className="student-img" src="https://thumbs.dreamstime.com/b/student-icon-vector-graduation-mortar-board-school-college-university-glyph-pictogram-male-person-profile-avatar-108392101.jpg" alt="student"></img> 
           :<img className="student-img" src={student.imageUrl} alt="student"></img>
         }
         <div id="student-info">

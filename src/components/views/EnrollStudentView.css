@@ -1,0 +1,47 @@
+.enrollStudent-submit-button{
+    margin:auto;
+    margin-top:10px;
+    width:35%;
+    height:40px;
+    background-color:rgb(106, 204, 93);
+    color:white;
+    border:none;
+    border-radius:3px;
+    font-size:15px;
+    cursor:pointer;
+    transition: background-color 0.3s;
+}
+
+.enrollStudent-submit-button:hover {
+    background-color: rgb(70, 164, 63); 
+}
+
+.enrollStudent-checkbox{
+    margin-right: 10px; 
+    flex-wrap: wrap;
+}
+
+.student-name{
+    font-weight: bold; 
+    color: #333;
+}
+
+.checkbox-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.checkbox-item{
+    display: flex;
+    align-items: center;
+    width:80%;
+    margin-left:20%;
+    margin-bottom: 10px;
+}
+
+.checkbox-label{
+    padding:10px;
+    cursor:pointer;
+}

@@ -1,0 +1,54 @@
+.new-student-title{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding-bottom:20px;
+}
+.new-student-input {
+    margin-top:5px;
+    margin-bottom:10px;
+    height:28px;
+    border-radius:3px;
+    border:1px solid grey;
+    width:100%;
+    font-size:14px;
+    font-family: 'Roboto', sans-serif;
+    padding:4px;
+    padding-left:8px;
+}
+.new-student-select{
+    margin-top:5px;
+    width:103%;
+    height:38px;
+    border:1px solid grey;
+    font-size:14px;
+    font-family: 'Roboto', sans-serif;  
+    margin-bottom:10px;
+}
+.new-student-submit-button{
+    margin:auto;
+    margin-top:10px;
+    width:35%;
+    height:40px;
+    background-color:rgb(93, 154, 204);
+    color:white;
+    border:none;
+    border-radius:3px;
+    font-size:15px;
+    cursor:pointer;
+    transition: background-color 0.3s;
+}
+
+.new-student-submit-button:hover {
+    background-color: rgb(63, 114, 164); 
+}
+
+.new-student-form{
+    text-align: left;
+    display:flex;
+    flex-direction: column;
+}
+
+.new-student-container{
+    width:30%;
+    margin:auto;
+}

@@ -8,8 +8,9 @@ import { Link } from "react-router-dom";
 import "./CampusView.css"
 // Take in props data to construct the component
 const CampusView = (props) => {
-  const {campus, students, deleteStudent, deleteCampus} = props;
+  const {campus, students, editStudent, deleteCampus} = props;
   const generalCampusImage = "https://cdn-icons-png.flaticon.com/512/904/904861.png";
+  console.log(props);
   // Render a single Campus view with list of its students
   function checkImageUrlValidity(imageUrl) {
     const img = new Image();
@@ -21,6 +22,21 @@ const CampusView = (props) => {
     deleteCampus(campusId)
     window.location.href = `/campuses`;
   }
+
+  const handleUnenroll = async (student) => {
+    let editedStudent = {
+      firstname: student.firstname,
+      lastname: student.lastname,
+      campusId: null,
+      campus: null,
+      id: student.id,
+      email: student.email,
+      gpa: student.gpa,
+      imageUrl: student.imageUrl
+    };
+    await editStudent(editedStudent);
+  }
+  
   return (
     <div style={{padding:"20px"}}>
       <h1 id="campus-view-title">{campus.name}</h1>
@@ -34,8 +50,8 @@ const CampusView = (props) => {
       </div>
 
       <div id="campus-view-buttons-container">
-        <Link to={`/newstudent`}>
-          <button className="campus-view-button">Add New Student</button>
+        <Link to={`/EnrollStudent/${campus.id}`}>
+          <button className="campus-view-button">Enroll New Student</button>
         </Link>
         <Link to={`/campus/${campus.id}/edit`}>
           <button className="campus-view-button">Edit Campus</button>
@@ -54,7 +70,7 @@ const CampusView = (props) => {
                 {/* {name.length > 30 ? `${name.substring(0, 30)}...` : name} */}
               </Link>  
             </div>
-            <button className="deleteStudentButton" onClick={() => deleteStudent(student.id)}>Delete Student</button>           
+            <button className="deleteStudentButton" onClick={() => handleUnenroll(student)}>Unenroll Student</button>           
           </div>
         );
       })}

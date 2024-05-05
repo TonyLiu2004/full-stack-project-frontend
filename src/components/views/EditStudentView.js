@@ -9,7 +9,7 @@ const EditStudentView = (props) => {
 
           <div style={{display:"flex", margin:"auto", flexWrap:"wrap", justifyContent:"space-evenly", width:"80%"}}>
             <div style={{maxWidth:"40%", flexBasis:"40%", flexShrink:"0"}}>
-              {tempurl === undefined ?
+              {tempurl === null ?
                   <img style={{paddingLeft:"30px", height:"auto", maxWidth:"100%"}} src="https://thumbs.dreamstime.com/b/student-icon-vector-graduation-mortar-board-school-college-university-glyph-pictogram-male-person-profile-avatar-108392101.jpg" alt="campus"></img> 
                   : <img style={{padding:"30px", height:"auto", maxWidth:"100%"}} src={tempurl} alt="student" onError={(e) => { 
                       e.target.src = 'https://thumbs.dreamstime.com/b/student-icon-vector-graduation-mortar-board-school-college-university-glyph-pictogram-male-person-profile-avatar-108392101.jpg';
