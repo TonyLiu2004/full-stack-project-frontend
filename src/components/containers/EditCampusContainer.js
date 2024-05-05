@@ -23,7 +23,6 @@ class EditCampusContainer extends Component {
     }
     
     handleChange = event => {
-        console.log( event.target);
         if(event.target.name === "imageurl"){ 
             this.setState({
                 [event.target.name]: event.target.value,

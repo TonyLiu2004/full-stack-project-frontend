@@ -15,14 +15,22 @@ class NewCampusContainer extends Component {
             address: "", 
             description: "",
             redirect: false, 
-            redirectId: null
+            redirectId: null,
+            tempurl: "",
         };
     }
     
     handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
+        if(event.target.name === "imageurl"){ 
+            this.setState({
+                [event.target.name]: event.target.value,
+                tempurl: event.target.value
+            })
+        }else{
+            this.setState({
+                [event.target.name]: event.target.value
+            });
+        }
     }
 
     handleSubmit = async event => {
@@ -66,7 +74,8 @@ class NewCampusContainer extends Component {
             <Header />
             <NewCampusView 
               handleChange = {this.handleChange} 
-              handleSubmit={this.handleSubmit}      
+              handleSubmit={this.handleSubmit}   
+              tempurl={this.state.tempurl}   
             />
           </div>          
         );
